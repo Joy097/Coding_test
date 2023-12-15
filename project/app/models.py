@@ -29,13 +29,10 @@ class ProductVariant(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
 
 
-class ProductVariantPrice(models):
-    product_variant_one = models.ForeignKey(ProductVariant, on_delete=models.CASCADE, null=True,
-                                            related_name='product_variant_one')
-    product_variant_two = models.ForeignKey(ProductVariant, on_delete=models.CASCADE, null=True,
-                                            related_name='product_variant_two')
-    product_variant_three = models.ForeignKey(ProductVariant, on_delete=models.CASCADE, null=True,
-                                              related_name='product_variant_three')
+class ProductVariantPrice(models.Model):
+    product_variant_one = models.ForeignKey(ProductVariant, on_delete=models.CASCADE, null=True,related_name='product_variant_one')
+    product_variant_two = models.ForeignKey(ProductVariant, on_delete=models.CASCADE, null=True,related_name='product_variant_two')
+    product_variant_three = models.ForeignKey(ProductVariant, on_delete=models.CASCADE, null=True,related_name='product_variant_three')
     price = models.FloatField()
     stock = models.FloatField()
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
