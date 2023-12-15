@@ -1,8 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
-def say_hello(request): 
-    return HttpResponse('Hello World')
+from .models import Product
+from .forms import AddProduct
+from rest_framework.decorators import api_view, renderer_classes
+from rest_framework.response import Response
+from rest_framework.renderers import TemplateHTMLRenderer
+from .serializers import ItemSerializer
 
 def show_page(request): 
-    return render(request,'home.html')
+    product = Product.objects.all()
+    return render(request,'home.html',{'product':product})

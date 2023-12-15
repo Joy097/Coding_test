@@ -4,7 +4,7 @@ from django import forms
 from .models import Variant, Product,ProductImage,ProductVariant,ProductVariantPrice
 
 
-class AddRecordForm(forms.ModelForm):
+class AddProduct(forms.ModelForm):
 	title = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"title", "class":"form-control"}), label="")
 	
 	
