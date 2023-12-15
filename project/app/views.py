@@ -14,6 +14,7 @@ def show_page(request):
 @api_view(['GET'])
 @renderer_classes([TemplateHTMLRenderer])
 def product_list(request, pk):
-    instance = Record.objects.get(pk=pk)
+    instance = Product.objects.get(pk=pk)
     serialized = ItemSerializer(instance)
-    return Response({'data':serialized.data}, template_name='record.html')
+    return Response({'data':serialized.data}, template_name='product.html')
+
