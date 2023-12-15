@@ -10,3 +10,10 @@ from .serializers import ItemSerializer
 def show_page(request): 
     product = Product.objects.all()
     return render(request,'home.html',{'product':product})
+
+@api_view(['GET'])
+@renderer_classes([TemplateHTMLRenderer])
+def product_list(request, pk):
+    instance = Record.objects.get(pk=pk)
+    serialized = ItemSerializer(instance)
+    return Response({'data':serialized.data}, template_name='record.html')
